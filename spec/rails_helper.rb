@@ -4,7 +4,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
-equire 'rspec/rails'
+require 'rspec/rails'
 require 'database_cleaner'
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -57,7 +57,7 @@ RSpec.configure do |config|
     DatabaseCleaner.cleaning do
       example.run
     end
-  end 
+  end
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

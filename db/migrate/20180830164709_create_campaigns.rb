@@ -3,8 +3,8 @@ class CreateCampaigns < ActiveRecord::Migration[5.2]
     create_table :campaigns do |t|
       t.string :title
       t.text :description
-      t.number :goal
-      t.number :pleged_amount
+      t.integer :goal
+      t.integer :pleged_amount
 
       t.timestamps
     end
