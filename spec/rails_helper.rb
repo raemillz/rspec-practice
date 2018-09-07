@@ -39,10 +39,8 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
-  FactoryGirl::Syntax::Methods
+  config.include FactoryGirl::Syntax::Methods
 
   # For Request Tests (E2E)
   config.include RequestSpecHelper, type: :request # <- Important!
@@ -53,7 +51,7 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
   end
 
-  config.before(:each) do |example|
+  config.around(:each) do |example|
     DatabaseCleaner.cleaning do
       example.run
     end
